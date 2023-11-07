@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 01 - Vue</title>
+
+    <!--
+        instalando Vue no projeto 
+    -->
+    <script src="https://unpkg.com/vue@next"></script>
+    
+</head>
+<body>
+    <div id="app">
+        <!--
+            interpolação simples com aspas duplas
+        -->
+        <p>Curso: {{curso}}</p>
+
+        <!--
+            diretiva v-bind:href para enviar links
+        -->
+        <a v-bind:href="docs">vueJS</a>
+
+        <!--
+            diretiva v-text para enviar textos
+        -->
+        <p>Aluno: <span v-text="nome"></span></p>
+
+        <!--
+            utilização de metódos direto do vue para enviar informações
+        -->
+        <P>Nome: {{ getNome() }}</P>
+
+        <!--
+            diretiva v-once para fazer uma única render
+        -->
+        <p v-once>Nome inteiro: {{ nome }}</p>
+
+        <!--
+            diretiva v-html para enviar html puro sem "Mustache" (aspas duplas)
+        -->
+        <p v-html="cursovuejs"></p>
+
+        
+    </div>
+    
+    <script>
+    const App = {
+        data(){
+            return{
+                curso: 'Vue',
+                docs: 'https://vuejs.org',
+                aluno: 'Daniel',
+                nome: 'Daniel Sanches',
+                cursovuejs: '<span style="color: red">vuejs</span>'
+            }
+        },
+        methods: {
+            getNome: function(){
+                this.nome = 'Daniel';
+                return this.nome;
+            }
+        }
+    }
+
+    Vue.createApp(App).mount("#app");
+    </script>
+
+    
+
+    
+</body>
+</html>
