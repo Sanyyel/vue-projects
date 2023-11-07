@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 03</title>
+
+    <!--
+        instalando Vue no projeto 
+    -->
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-on:click="onClick('p', $event)">
+            Curso de VueJS
+            <button v-on:click.stop="onClick('button', $event)">Clique</button>
+        </p>
+
+        <form>
+            <input type="text">
+            <button type="submit" v-on:click="onSubmit">Enviar sem modificador</button>
+            <button type="submit" v-on:click.prevent.stop="onSubmit">Enviar com modificador</button>
+        </form>
+    </div>
+
+    <script>
+        const App = {
+            data() {
+                return{
+                    
+                }
+            },
+            methods: {
+                onClick: function(elemAlvo, event){
+                    console.log(event.type, ':', elemAlvo);
+                },
+                onSubmit: function(event){
+                    console.log('Formulário enviado!');
+                }
+            }
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+</html>
