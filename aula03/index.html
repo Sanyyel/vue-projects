@@ -11,19 +11,22 @@
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
-    <div>
-
+    <div id="app">
+        <input v-on:blur="exibirNome('Meu nome é: ', $event)">
+        <p>{{nome}}</p>
     </div>
 
     <script>
         const App = {
             data() {
                 return{
-                    
+                    nome: ''
                 }
             },
             methods: {
-                
+                exibirNome: function(texto, event){
+                    this.nome = texto + event.target.value;
+                }
             }
         }
         Vue.createApp(App).mount("#app");
