@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05</title>
+
+    <!--
+        instalando Vue no projeto 
+    -->
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <input v-on:keyup="onKey" placeholder="Qualquer tecla">
+        <br>
+        <input v-on:keyup.enter="onKey" placeholder="Tecla Enter">
+        <br>
+        <input v-on:keyup.enter.esc="onKey" placeholder="Teclas Enter e Esc">
+        <br>
+        <input v-on:keyup.ctrl.enter="onKey" placeholder="Teclas Ctrl + Enter">
+        <br>
+    </div>
+
+    <script>
+        const App = {
+            data() {
+                return{
+                    
+                }
+            },
+            methods: {
+                onKey: function(event){
+                    console.log('Tecla ' + event.key + ' pressionada!');
+                }
+            }
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+</html>
