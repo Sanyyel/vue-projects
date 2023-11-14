@@ -14,7 +14,7 @@
     <div id="app">
         <p>Nome original: {{curso}}</p>
         <p>Nome invertido (computed): {{cursoInvertidoComputed}}</p>
-        <p>Nome invertido (method): {{cursoInvertidoMethod}}</p>
+        <p>Nome invertido (method): {{cursoInvertidoMethod()}}</p>
         <p>Autor: {{nomedoautor ? 'Daniel Sanches' : 'Daniel'}}</p>
         <button @click="nomedoautor = !nomedoautor">Alterar nome do autor</button>
         <br>
